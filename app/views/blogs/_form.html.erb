@@ -1,0 +1,31 @@
+<!-- urlオプションにより、confirm_blogs_pathと対応するアクションのblogs#confirmを実行する。 -->
+<!-- このオプションにより、newもしくはeditアクションの次にconfirmアクションを実行させる。 -->
+<!-- newとupdateは、@blogの中身がレコードに存在しない（new）と、存在する（edit）でform_forがデフォルトで振り分けてくれる。 -->
+<!-- %= form_for(@blog, url: confirm_blogs_path) do |f| % -->
+
+<!-- helperメソッドで定義したchoose_new_or_editを呼び出し、newアクションは確認画面経由、editアクション時は経由しない。 -->
+<%= form_for(@blog, url: choose_new_or_edit) do |f| %>
+  <% if @blog.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @blog.errors.count %>件のエラーがあります。</h2>
+
+      <ul>
+      <% @blog.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title, class: 'form-control' %>
+  <!-- ヘルパーメソッドオプションでform-controlクラスを付与。フォーム欄のデザインを定義 -->
+  <br>
+  <%= f.label :content %>
+  <%= f.text_field :content, class: 'form-control' %>
+  <br>
+  <%= f.submit '投稿', class: 'btn btn-primary btn-block' %>
+  <!-- ヘルパーメソッドオプションでbtn btn-primary btn-blockクラスを付与。投稿ボタンのデザインを定義 -->
+<% end %>
+
+<%= link_to "ブログ一覧画面にもどる", blogs_path %>
