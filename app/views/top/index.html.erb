@@ -20,11 +20,14 @@
     <!--Bootstrapのrow,cowクラスによりレスポンシブ化。container-fluid：画面一杯に表示-->
   <div class="row">
       <!--まずはBootstrapのrowクラスで対象画像全体を囲い、cowクラスを使用可能とする-->
+      <!--rowクラスで1行。1行は12列分。colクラスで12列を分割していく-->
     <h2>Function</h2>
       <div class="function-images">
         <div class="col-md-3 col-sm-6">
+            <!--md,xl,sm：画面サイズ(ピクセル数)を検知して制御を振り分け-->
             <!--col-md-3：画像サイズ922px以上のとき、3カラム分で表示-->
             <!--col-sm-6：画像サイズ768px以上のとき、6カラム分で表示-->
+            <!--col-sm-12：12がMAX値。-->
           <div class="function-image">
             <img src="<%= asset_path "key.png" %>">
             <p>ログイン機能</p>
