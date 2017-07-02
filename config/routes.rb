@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  devise_for :users
   resources :blogs, only: [:index, :new, :create, :edit, :update ,:destroy] do
     collection do
       post :confirm #アクションを追加する場合（別のVerbに紐付けたい時）
