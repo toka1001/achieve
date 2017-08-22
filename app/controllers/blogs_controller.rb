@@ -1,4 +1,5 @@
 class BlogsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_blog, only: [:edit, :update, :destroy]
   
   def index
@@ -15,6 +16,7 @@ class BlogsController < ApplicationController
 
   def create
     @blog = Blog.create(blogs_params) #Blog.newで送られたパラメータをDBへ保存。blogs_paramsなので↓で定義されたストロングパラメータを使用
+    @blog.user_id = current_user.id
     if @blog.save
      redirect_to blogs_path, notice: "ブログを作成しました！"
     else
