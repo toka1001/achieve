@@ -11,6 +11,7 @@ while n <= 100
      email: email,
      password: password,
      password_confirmation: password,
+     user_id: n
   )
   n = n + 1
 end
