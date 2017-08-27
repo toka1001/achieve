@@ -7,11 +7,11 @@ while n <= 100
     content: "hoge",
     user_id: n
   )
-   User.create(
-     email: email,
-     password: password,
-     password_confirmation: password,
-     user_id: n
-  )
+  email = Faker::Internet.email
+  password = "password"
+  User.create!(email: email,
+               password: password,
+               password_confirmation: password,
+               )
   n = n + 1
 end
