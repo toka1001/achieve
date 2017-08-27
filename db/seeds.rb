@@ -1,6 +1,4 @@
 n = 1
-email = Faker::Internet.email
-password = "password"
 while n <= 100
   Blog.create(
     title: "あああ",
