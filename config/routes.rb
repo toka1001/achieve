@@ -13,6 +13,8 @@ Rails.application.routes.draw do
      post :confirm #アクションを追加する場合（別のVerbに紐付けたい時）
     end
   end
+  
+  resources :poems, only: [:index, :show]
 
   if Rails.env.development?
    mount LetterOpenerWeb::Engine, at: "/letter_opener"
