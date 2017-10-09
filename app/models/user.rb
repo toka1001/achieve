@@ -3,8 +3,9 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable
+
   mount_uploader :avatar, AvatarUploader
-  has_many :blogs
+  
   
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.find_by(provider: auth.provider, uid: auth.uid)
@@ -55,4 +56,5 @@ class User < ActiveRecord::Base
     end
   end
   
+  has_many :blogs  
 end
