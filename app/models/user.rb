@@ -56,5 +56,8 @@ class User < ActiveRecord::Base
     end
   end
   
-  has_many :blogs  
+  has_many :blogs, dependent: :destroy
+  # CommentモデルのAssociationを設定
+  has_many :comments, dependent: :destroy
+  
 end
