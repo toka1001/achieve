@@ -45,6 +45,8 @@ group :development, :test do
   gem 'dotenv-rails'
 end
 
+gem 'pusher'
+
 gem 'twitter-bootstrap-rails'
 
 gem 'jquery-turbolinks'
@@ -74,3 +76,4 @@ gem 'omniauth-facebook'
 #image uploader
 gem 'carrierwave'
 gem 'mini_magick'
+
