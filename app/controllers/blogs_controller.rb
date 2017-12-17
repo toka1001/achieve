@@ -53,9 +53,9 @@ class BlogsController < ApplicationController
 #    @blog = Blog.find(params[:id])
     @blog.destroy
       respond_to do |format|
-       format.html
-       format.js
-       redirect_to blogs_path, notice: "ブログを削除しました！"
+       format.html { redirect_to blogs_path, notice: "ブログを削除しました！"}
+       format.js { redirect_to blogs_path, notice: "ブログを削除しました！"}
+       #redirect_to blogs_path, notice: "ブログを削除しました！"
       end
   end
   

@@ -6,7 +6,9 @@ module ApplicationHelper
      img_url = user.image_url
     else
      img_url = 'no_image.png'
+     size = "150x150"
     end
-   image_tag(img_url, alt: user.name)
+   image_tag(img_url, alt: user.name, :size => size)
+   #image_tag(img_url, alt: user.name, :size => "100x100")
  end
 end
