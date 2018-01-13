@@ -4,6 +4,7 @@ module ApplicationHelper
      
     unless user.provider.blank?
      img_url = user.image_url
+     size = "150x150"
     else
      img_url = 'no_image.png'
      size = "150x150"
